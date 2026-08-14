@@ -16,11 +16,8 @@ public class PostcodeController {
     }
 
     @GetMapping("/postcode")
-    public String getPostcode(@RequestParam(value="postcode", defaultValue="BR87RE") String postcode) {
-        Postcode pc = new Postcode(postcode);
-        String result = postcodeLookup.pcLookup(postcode);
-        System.out.println(pc.postcode());
-        return result;
+    public String getPostcode(@RequestParam(value="postcode", defaultValue="SW1A1AA") String postcode) {
+        return postcodeLookup.pcLookup(postcode);
     }
 
 }

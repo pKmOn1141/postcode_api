@@ -9,7 +9,7 @@ public class WebClientConfig {
 
     @Bean
     public WebClient getWebClient() {
-        return WebClient.builder().baseUrl("https://api.postcodes.io").build();
+        return WebClient.builder().baseUrl("http://api.postcodes.io").build();
     }
 
 }

@@ -12,6 +12,6 @@ public class PostcodeLookup {
     private WebClient webClient;
 
     public String pcLookup(String postcode) {
-        return webClient.get().uri("/postcodes/{postcode}", postcode).retrieve().bodyToMono(String.class).block();
+        return webClient.get().uri("postcodes/{postcode}", postcode).retrieve().bodyToMono(String.class).block();
     }
 }
