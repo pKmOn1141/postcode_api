@@ -11,6 +11,7 @@ public class JSONHandling {
         JSONObject result = pcResponse.getJSONObject("result");
         JSONObject latLong = new JSONObject();
 
+        latLong.put("postcode", result.getString("postcode"));
         latLong.put("lat", result.getDouble("latitude"));
         latLong.put("long", result.getDouble("longitude"));
 
