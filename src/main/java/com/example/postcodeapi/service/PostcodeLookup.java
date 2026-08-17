@@ -3,6 +3,7 @@ package com.example.postcodeapi.service;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -12,10 +13,8 @@ public class PostcodeLookup {
     @Autowired
     private WebClient webClient;
 
-    public JSONObject pcLookup(String postcode) {
+    public ResponseEntity<String> pcLookup(String postcode) {
 
-        String response = webClient.get().uri("postcodes/{postcode}", postcode).retrieve().bodyToMono(String.class).block();
-
-        return new JSONObject(response);
+        return webClient.get().uri("postcodes/{postcode}", postcode).exchangeToMono(response -> response.toEntity(String.class)).block();
     }
 }
