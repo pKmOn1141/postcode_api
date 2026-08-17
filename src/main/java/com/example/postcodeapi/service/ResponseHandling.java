@@ -12,9 +12,16 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class ResponseHandling {
 
-    public static ResponseEntity<?> isResponseValid (ResponseEntity<String> pcResponse) {
+    public static ResponseEntity<?> isResponseValid (ResponseEntity<String> pcResponse, String postcode) {
 
-        int status = pcResponse.getStatusCode().value();
+        int status;
+
+        if (InputValidation.isPostcodeValid(postcode)) {
+            status = pcResponse.getStatusCode().value();
+        }
+        else {
+            status = 400;
+        }
 
         switch (status) {
             // Successful

@@ -23,6 +23,6 @@ public class PostcodeController {
 
         ResponseEntity<String> pcResponse = postcodeLookup.pcLookup(postcode);
 
-        return ResponseHandling.isResponseValid(pcResponse);
+        return ResponseHandling.isResponseValid(pcResponse, postcode);
     }
 }
