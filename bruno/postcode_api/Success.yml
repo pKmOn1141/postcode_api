@@ -1,0 +1,34 @@
+info:
+  name: Success
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:8080/postcodes/SW1A1AA
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("body has postcode", function () {
+          expect(res.getBody()).to.have.property("postcode");
+          });
+
+        test("200 status code", function () {
+          expect(res.getStatus()).to.eql(200);
+        });
+  assertions:
+    - expression: res.body.postcode
+      operator: eq
+      value: '"SW1A 1AA"'
+    - expression: res.status
+      operator: eq
+      value: "200"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,34 @@
+info:
+  name: Invalid Postcode
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: http://localhost:8080/postcodes/invalidpc
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("body has message", function () {
+          expect(res.getBody()).to.have.property("message");
+          });
+
+        test("400 status code", function () {
+          expect(res.getStatus()).to.eql(400);
+        });
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "400"
+    - expression: res.body.message
+      operator: eq
+      value: '"Invalid postcode format."'
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
