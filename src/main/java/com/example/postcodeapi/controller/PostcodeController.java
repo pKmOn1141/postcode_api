@@ -2,10 +2,8 @@ package com.example.postcodeapi.controller;
 
 import com.example.postcodeapi.model.ResponseError;
 import com.example.postcodeapi.service.InputValidation;
-import com.example.postcodeapi.service.JSONHandling;
 import com.example.postcodeapi.service.PostcodeLookup;
 import com.example.postcodeapi.service.ResponseHandling;
-import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -2,12 +2,10 @@ package com.example.postcodeapi.service;
 
 import com.example.postcodeapi.model.Postcode;
 import com.example.postcodeapi.model.ResponseError;
-import org.apache.coyote.Response;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ResponseHandling {

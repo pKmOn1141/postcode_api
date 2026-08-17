@@ -1,7 +1,5 @@
 package com.example.postcodeapi.service;
 
-
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
